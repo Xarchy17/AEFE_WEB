@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEFÈ Stock Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">📦</div>
+                <div class="logo-text">AEFÈ Web</div>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-page="dashboard">
+                    <span>🏠</span> Dashboard
+                </button>
+                <button class="nav-item" data-page="daftar-barang">
+                    <span>📋</span> Daftar Barang
+                </button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div id="dashboard" class="content-section active">
+                <div class="page-header">
+                    <h1 class="page-title"><span>📊</span> Dashboard</h1>
+                    <button class="btn btn-primary" id="btn-tambah">
+                        <span>➕</span> Tambah Barang
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-label">Total Stok</div>
+                        <div class="stat-value" id="total-stok">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <div class="stat-label">Hampir Habis</div>
+                        <div class="stat-value" id="hampir-habis">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-label">Stok Aman</div>
+                        <div class="stat-value" id="stok-aman">0%</div>
+                    </div>
+                </div>
+
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3 class="table-title">Top 5 Barang</h3>
+                        <button class="btn btn-success" id="btn-download">
+                            <span>⬇️</span> Download
+                        </button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="tabel-barang">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Stok</th>
+                                    <th>Harga</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="daftar-barang" class="content-section">
+                <div class="page-header">
+                    <h1 class="page-title"><span>📋</span> Semua Barang</h1>
+                </div>
+
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3 class="table-title">Data Lengkap</h3>
+                        <div class="table-actions">
+                            <button class="btn btn-secondary" id="btn-print">
+                                <span>🖨️</span> Cetak
+                            </button>
+                            <button class="btn btn-danger" id="btn-hapus">
+                                <span>🗑️</span> Hapus Semua
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="tabel-all">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Stok</th>
+                                    <th>Harga</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Tambah Barang</h3>
+                <button class="close-btn" id="close">&times;</button>
+            </div>
+            <form id="form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label class="form-label">Nama Barang</label>
+                    <input type="text" class="form-input" id="nama" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Stok</label>
+                    <input type="number" class="form-input" id="stok" required min="0">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Harga (Rp)</label>
+                    <input type="number" class="form-input" id="harga" required min="0">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%">
+                    <span>💾</span> <span id="btn-text">Simpan</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
